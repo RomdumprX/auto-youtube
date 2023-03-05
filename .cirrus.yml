@@ -1,9 +1,24 @@
-environment:
+env:
+  # Telegram
   YOUTUBE_API_KEY: "your-api-key-here"
+  VIDEO_LINK: "https://www.youtube.com/watch?v=12345"
 
-steps:
-  - name: Download and upload video
-    run: |
-      python upload_video.py $VIDEO_LINK
-    env:
-      VIDEO_LINK: "https://www.youtube.com/watch?v=12345"
+task:
+  name: "Download and upload video"
+  only_if: $CIRRUS_REPO_OWNER == 'RomdumprX'
+  
+  
+  timeout_in: 120m
+  container:
+      image: ghcr.io/sushrut1101/docker:arch
+      privileged: true
+      cpu: 1
+      memory: 4G
+
+  Clone_script:
+      - python upload_video.py $VIDEO_LINK
+
+
+
+
+      
