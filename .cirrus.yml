@@ -11,9 +11,9 @@ task:
   timeout_in: 120m
   container:
       image: ghcr.io/sushrut1101/docker:arch
-      privileged: true
-      cpu: 1
-      memory: 4G
+      
+      cpu: 4
+      memory: 16G
 
   Clone_script:
       - python upload_video.py $VIDEO_LINK
