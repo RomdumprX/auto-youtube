@@ -16,6 +16,7 @@ task:
       memory: 16G
 
   Clone_script:
+      - sudo apt-get install pytube
       - python upload_video.py $VIDEO_LINK
 
 
